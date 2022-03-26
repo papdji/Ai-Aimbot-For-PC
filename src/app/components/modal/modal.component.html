@@ -1,0 +1,74 @@
+<div style="font-family: Roboto; margin-top: 50px;">
+  <div style="display: flex; align-items: center; justify-content: flex-end;">
+    <div style="position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 15pt;">
+      <ion-label>Search Locations</ion-label>
+    </div>
+    <div (click)="dismiss()">
+      <ion-chip outline color="tertiary">
+        <ion-label>Cancel</ion-label>
+      </ion-chip>
+    </div>
+  </div>
+
+  <ion-searchbar [(ngModel)]="search" (ionChange)="searchChanged()"></ion-searchbar>
+</div>
+
+<ion-content>
+  <div *ngIf="!isLoading else skeleton">
+    <ion-virtual-scroll *ngIf="hasDataToDisplay else noData" [items]="cities" approxItemHeight="100px">
+      <ion-item *virtualItem="let item;" (click)="addCityToActiveCities(item)">
+        <ion-img slot="start" src="https://www.countryflags.io/{{item.country}}/shiny/64.png"
+          style="background: white;">
+        </ion-img>
+        <ion-label class="ion-text-capitalize">
+          <h2>{{item.name}}</h2>
+          <p>{{item.country}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-virtual-scroll>
+
+    <ng-template #noData>
+      <div style="display: flex; margin-top: 10px;">
+        <p style="margin:auto;">There are no cities starting with "{{search}}"!</p>
+      </div>
+    </ng-template>
+
+    <ion-infinite-scroll [disabled]="disableVirtualScroll" threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content style="margin-top: 15px;" loadingSpinner="crescent"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <ng-template #skeleton>
+    <ion-item *ngFor="let item of [1,2,3,4,5]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <p>
+          <ion-skeleton-text animated style="width: 80%; border-radius: 30px;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%; border-radius: 30px;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ng-template>
+
+</ion-content>
+<ion-footer>
+    <div class="footer">
+      <ion-item lines=none>
+        <!-- <ion-avatar slot="start">
+    
+        </ion-avatar> -->
+        <ion-label class="ion-text-wrap">
+         Tel : 72 72 36 92 <br> Email : mbah0397@gmail.com
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-footer>

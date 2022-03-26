@@ -1,0 +1,75 @@
+<div class="wrapper">
+  <!-- weather condition -->
+  <div class="weatherCondition">
+    <img [src]="icon">
+    <ion-label style="margin-left: 15px;">
+      {{forecast?.weather[0].main}}
+    </ion-label>
+  </div>
+
+  <!-- weather numeric -->
+  <div>
+    <div class="weatherNumeric">
+      <div>
+        <ion-label style=" font-size: 110pt;">
+          {{forecast?.main.temp.toFixed(0)}}°
+        </ion-label>
+      </div>
+
+      <div style="font-size: 20pt; margin-top: 30px;">
+        <div style="border-bottom: 1px solid white; padding-bottom: 5px;">
+          <ion-label>
+            {{forecast?.main.temp_max.toFixed(0)}}°C
+          </ion-label>
+        </div>
+
+        <div style="padding-top: 5px;">
+          <ion-label>
+            {{forecast?.main.temp_min.toFixed(0)}}°C
+          </ion-label>
+        </div>
+      </div>
+    </div>
+
+    <!-- indicators -->
+    <div style="display: flex; justify-content: space-between; margin-top: 50px;">
+      <div class="indicator">
+        <img src="../assets/indicator/temperature-2-24.png">
+        <ion-label>Feels like</ion-label>
+        <ion-label>{{forecast?.main.feels_like.toFixed(0)}}°C</ion-label>
+      </div>
+
+      <div class="indicator">
+        <img src="../assets/indicator/wind.png">
+        <ion-label>Wind</ion-label>
+        <ion-label>{{forecast?.wind.speed}} km/h</ion-label>
+      </div>
+
+      <div class="indicator">
+        <img src="../assets/indicator/humidity.png">
+        <ion-label>Humidity</ion-label>
+        <ion-label>{{forecast?.main.humidity}} %</ion-label>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+      <div class="indicator">
+        <img src="../assets/indicator/gauge.png">
+        <ion-label>Pressure</ion-label>
+        <ion-label>{{forecast?.main.pressure}} hPa</ion-label>
+      </div>
+
+      <div class="indicator">
+        <img src="../assets/indicator/witness.png">
+        <ion-label>Visibility</ion-label>
+        <ion-label>{{forecast?.visibility}} m</ion-label>
+      </div>
+
+      <div class="indicator">
+        <img src="../assets/indicator/info.png">
+        <ion-label>Created by</ion-label>
+        <ion-label>Maid</ion-label>
+      </div>
+    </div>
+  </div>
+</div>

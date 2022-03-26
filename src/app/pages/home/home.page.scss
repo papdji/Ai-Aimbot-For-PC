@@ -1,0 +1,24 @@
+ion-content{
+    font-family: 'Roboto';
+}
+
+ion-toolbar{
+    color:white;
+}
+
+ion-title{
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+ion-toolbar:last-child {
+    --border-width: 0px;
+}
+
+app-weather-details{
+    width: 100%;
+}
+
+ion-slides{
+    height: 90%;
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="ion-color" [style.background-color]="toolbarBgColor">
+    <ion-title style="font-size: 20pt;">
+      {{activeSlideCityName}}
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon color="light" slot="icon-only" name="more" mode="md"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [color]="contentBgColor">
+  <div style="display: flex; justify-content: center; color: white; font-weight: 100;">
+    <ion-label>Updated on: {{lastUpdateDate}}</ion-label>
+  </div>
+
+  <ion-slides (ionSlideWillChange)="changeToolbarTitle()">
+    <ion-slide *ngFor="let item of forecast">
+      <app-weather-details [forecast]="item"></app-weather-details>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
