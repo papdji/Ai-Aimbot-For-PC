@@ -67,7 +67,7 @@ export class ModalComponent implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'No more results...',
+      message: 'Plus de résultats...',
       duration: 2000
     });
     toast.present();

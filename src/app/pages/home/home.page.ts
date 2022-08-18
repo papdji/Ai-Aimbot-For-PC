@@ -183,7 +183,7 @@ export class HomePage implements OnInit, OnDestroy {
   async presentAlert(cityName: string) {
     const alert = await this.alertController.create({
       header: 'Warning',
-      message: 'Are you sure you want to delete ' + cityName + " from active cities?",
+      message: 'Aêtes-vous sûr de vouloir supprimer ' + cityName + " des villes actives ?",
       buttons: [
         {
           text: 'OK',
@@ -192,7 +192,7 @@ export class HomePage implements OnInit, OnDestroy {
           }
         },
         {
-          text: 'Cancel',
+          text: 'Annuler',
           role: "cancel"
         }
       ]
